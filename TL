@@ -30,7 +30,7 @@ EXT_VFAC_BR_TL AS (
     BR_FCH_ACT,
     BR_FCH_REPO,
     -- Fecha de solicitud
-    DATE(((SELECT PARSE_DATE("%Y%j", SUBSTR(CAST(BR_SOLIC_CVE AS STRING), 1, 7))))) AS DT_FCH_SOL,
+    PARSE_DATE('%Y%j', SUBSTR(CAST(BR_SOLIC_CVE AS STRING), 1, 7)) AS DT_FCH_SOL,
     -- Bin cuenta (Primeros 4 dígitos)
     LEFT(TRIM(CAST(CTA_CVE AS STRING)), 4) AS BIN_CTA,
     -- Bin cuenta (Primeros 8 dígitos)
